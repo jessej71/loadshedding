@@ -4,59 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>South Africa Load Shedding</title>
-
-  <!-- Import D3 and Observable Plot libraries -->
-  <script src="https://d3js.org/d3.v6.min.js"></script>
-
+  <title>Load Shedding in South Africa</title>
 
 <body>
-  <!-- Your HTML content -->
 
-  <!-- Your custom JavaScript code -->
-  <script type="module">
-    import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
-    
-    // Use d3 to load a CSV file
-    const tp = d3.timeParse("%Y-%m-%d %H:%M:%S");
-    
-    d3.csv("data/eskom_shed.csv").then(data => {
+  <div id="heatmap_timeseries"></div>
 
-      const plot = Plot.plot({
-          padding: 0.0,
-          x: {label: "Month",tickFormat: Plot.formatMonth("en", "short")},
-          y: {label: "Year",transform: (d) => d==124 ? '2024' : "'".concat(String(d-100))},
-          color: {type:"linear",
-                  label: "Hours per day without electricity",
-                  range:["white","orange","red","brown","black"],
-                  legend: true},
-          title:"Load Shedding in South Africa",
-          caption:"State run electricity provider Eskom cuts power to predetermined locations when demand exceeds supply. This is called load shedding. The impact for the last decade is shown in terms of the the monthly average of daily power cuts experienced by South Africans.",
-          marks: [
-            Plot.cell(data, Plot.group({fill: "mean"}, {
-              x: (d) => tp(d.date).getMonth(),
-              y: (d) => tp(d.date).getYear(),
-              fill: (d) => d.stage * 1.5,
-              inset: 0.5,
-              tip:{
-                format:{
-                  stroke:true,
-                  y: true,
-                  x: (d) => `${d+1}`
-                }}
-              
-            })),
-            Plot.tip(
-              [`2016-2017, a period of no load shedding.`],
-              {x: new Date("2016-06-16").getMonth(), y: new Date("2016-06-16").getYear(), dy: 10, anchor: "middle"}
-            )
-          ]
-        })
+  <p style="font-size: 8px; color: grey;">Data source: <a href="https://sepush.co.za/">sepush.co.za</a>.  </p>
 
-      // Render the plot
-      document.body.appendChild(plot);
-    });
-  </script>
+  <!-- Include the script.js file -->
+  <script type="module" src="script.js"></script>
+  
 </body>
-
 </html>
