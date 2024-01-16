@@ -31,11 +31,12 @@ d3.csv("data/eskom_shed.csv").then(data => {
           }
         }
 
-      })),
+      }))
+      /*,
       Plot.tip(
         [`2016-2017, a period of no load shedding.`],
         { x: new Date("2016-06-16").getMonth(), y: new Date("2016-06-16").getYear(), dy: 10, anchor: "middle" }
-      )
+      )*/
     ]
   })
 
