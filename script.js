@@ -17,7 +17,6 @@ d3.csv("data/eskom_shed.csv").then(data => {
       legend: true
     },
     title: "Load Shedding in South Africa",
-    caption: "State run electricity provider Eskom cuts power to predetermined locations when demand exceeds supply. This is called load shedding. The impact for the last decade is shown in terms of the the monthly average of daily power cuts experienced by South Africans.",
     marks: [
       Plot.cell(data, Plot.group({ fill: "mean" }, {
         x: (d) => tp(d.date).getMonth(),

@@ -1,4 +1,27 @@
-html {
-  height: 100%;
-  width: 100%;
+body {
+  background-color: #aeeeee;
+  /* Light blue background color */
+  margin: 0;
+  /* Remove default margin */
+  font-family: Arial, sans-serif;
+  /* Set a default font family */
+}
+
+.container {
+  max-width: 800px;
+  /* Set a maximum width for content */
+  margin: 0 auto;
+  /* Center the container horizontally */
+  padding: 20px;
+  /* Add some padding to the container */
+}
+
+h1 {
+  color: #333;
+  /* Set heading color */
+}
+
+p {
+  color: #555;
+  font-size: smaller;
 }
