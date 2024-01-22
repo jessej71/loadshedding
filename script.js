@@ -44,7 +44,7 @@ d3.csv("data/eskom_shed.csv").then(data => {
 
 d3.csv("data/date_stage_rain.csv").then(data => {
   const plot = Plot.plot({
-    x: {label: "Precipitation (m per day)"},
+    x: {label: "Precipitation (m per day)",domain:[0,.025]},
     y: {label: "Electricity Interuption (hours per day)"},
     title: "Power Interuptions vs. Precipitation",
     caption:"Figure 2: Power interuption derived from Eskom loadshedding data. Precipitation averaged over 200 km square region covering Mpungalanga providence. Rainbow colors show data density to express overlapping points. Linear regression and uncertainty appear in brown.",
