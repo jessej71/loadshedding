@@ -17,6 +17,7 @@ d3.csv("data/eskom_shed.csv").then(data => {
       legend: true
     },
     title: "Load Shedding in South Africa",
+    caption: 'Figure 1: A decade of load shedding events, expressed as monthly averages. No load shedding took place in 2016 or 2017.',
     marks: [
       Plot.cell(data, Plot.group({ fill: "mean" }, {
         x: (d) => tp(d.date).getMonth(),
@@ -32,15 +33,29 @@ d3.csv("data/eskom_shed.csv").then(data => {
         }
 
       }))
-      /*,
-      Plot.tip(
-        [`2016-2017, a period of no load shedding.`],
-        { x: new Date("2016-06-16").getMonth(), y: new Date("2016-06-16").getYear(), dy: 10, anchor: "middle" }
-      )*/
     ]
   })
 
   // Render the plot
   const div = document.querySelector("#heatmap_timeseries");
+  div.append(plot);
+});
+
+
+d3.csv("data/date_stage_rain.csv").then(data => {
+  const plot = Plot.plot({
+    x: {label: "Precipitation (m per day)"},
+    y: {label: "Electricity Interuption (hours per day)"},
+    title: "Power Interuptions vs. Precipitation",
+    caption:"Figure 2: Power interuption derived from Eskom loadshedding data. Precipitation averaged over 200 km square region covering Mpungalanga providence. Rainbow colors show data density to express overlapping points. Linear regression and uncertainty appear in brown.",
+    marks: [
+      Plot.density(data, {x: (d) => +d.precip, y: (d) => d.stage*1.5, fill: "density",bandwidth:20,fillOpacity:.15}),
+      Plot.linearRegressionY(data, {x: (d) => +d.precip, y: (d) => d.stage*1.5, stroke: "brown"}),
+      Plot.dot(data, {x: (d) => +d.precip, y: (d) => d.stage*1.5, fill: "currentColor", r: 1.2}),
+      Plot.tip(data, Plot.pointer({x: (d) => +d.precip, y: (d) => d.stage*1.5,title: (d) => d.date}))
+    ]
+  })
+  // Render the plot
+  const div = document.querySelector("#scatter_plot");
   div.append(plot);
 });
