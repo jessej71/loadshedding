@@ -1,5 +1,5 @@
 body {
-  background-color: #aeeeee;
+  background-color: #fcfdfd;
   /* Light blue background color */
   margin: 0;
   /* Remove default margin */
@@ -12,7 +12,7 @@ body {
   /* Set a maximum width for content */
   margin: 0 auto;
   /* Center the container horizontally */
-  padding: 20px;
+  padding: 0;
   /* Add some padding to the container */
 }
 
@@ -24,4 +24,30 @@ h1 {
 p {
   color: #555;
   font-size: smaller;
+}
+
+header {
+  background-color: #e8edb7; /* Muted background color */
+  color: #666; /* Muted text color */
+  text-align: center;
+  padding: 10px 0; /* Smaller padding */
+  border-bottom: 2px solid #ddd; /* Thinner border */
+}
+nav {
+  display: flex;
+  justify-content: center;
+  border-top: 2px solid #ddd; /* Thinner border */
+  padding: 5px 0; /* Smaller padding */
+}
+nav a {
+  color: #333; /* Muted text color */
+  text-decoration: none;
+  margin: 0 10px;
+  padding: 5px 10px; /* Smaller padding */
+  border: 1px solid #ddd; /* Thinner border */
+  border-radius: 5px; /* Smaller border radius */
+}
+nav a:hover {
+  background-color: #ddd; /* Muted background color on hover */
+  color: #000; /* Darker text color on hover */
 }

@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 
+  <header>
+    <h2>Load Shedding</h2>
+    <nav>
+        <a href="index.html">Amount</a>
+        <a href="powerGen.html">Power generation</a>
+        <a href="causes.html">Causes</a>
+    </nav>
+</header>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Load Shedding in South Africa</title>
-
+  <link rel="stylesheet" href="style.css"> 
 <body>
-  <h2>Data driven investigating of an energy crisis in South Africa</h2>
-  <p>South African state run electricity provider <a href="https://www.eskom.co.za/">Eskom</a> cuts power to predetermined locations when demand exceeds supply. This is called load shedding and has led to a <a href="https://en.wikipedia.org/wiki/South_African_energy_crisis#:~:text=The%20South%20African%20energy%20crisis,and%20continues%20to%20the%20present.">energy crisis</a>. In Figure 1, the impact for the last decade is shown in terms of the the monthly average of daily power cuts experienced by South Africans.</p>
+  <h2>Data driven investigation of an energy crisis in South Africa</h2>
+  <p>South African state run electricity provider <a href="https://www.eskom.co.za/">Eskom</a> cuts power to predetermined locations when demand exceeds supply. This is called load shedding and has led to a <a href="https://en.wikipedia.org/wiki/South_African_energy_crisis#:~:text=The%20South%20African%20energy%20crisis,and%20continues%20to%20the%20present.">energy crisis</a>. In the following figure the impact of the last decade of load shedding is shown in terms of the the monthly average of daily power cuts experienced by South Africans.</p>
   
-  <!-- Include the script.js file -->
-  <script type="module" src="script.js"></script>
-  
-  <div id="heatmap_timeseries"></div>
 
-  <p style="font-size: 8px; color: grey;text-align: right;">Data source: <a href="https://sepush.co.za/">sepush.co.za</a>.  </p>
+  <iframe width="100%" height="433" frameborder="0"
+  src="https://observablehq.com/embed/e4faeb0a19c7f9dd@396?cells=monthlyLoadShed"></iframe>
 
-  <p> <a href="https://www.news24.com/fin24/Economy/Eskom/breaking-eskom-moves-to-stage-6-load-shedding-20191209">Some suggest</a> load shedding is explained by heavy rainfall. The hypothesis would be that <b><i>heavy rains lower energy production</i></b> because much of South Africa's energy is produced by coal that can become water saturated and not burn well. To test this, Figure 2 plots power interuptions vs precipitation.</p>
-  <div id="scatter_plot"></div>
-  
+  <p>Detail is lost in the monthly view. Below, daily electricity interuptions are shown.</p>
+  <iframe width="100%" height="1406" frameborder="0"
+  src="https://observablehq.com/embed/e4faeb0a19c7f9dd@399?cells=plot"></iframe>
+
   <p style="font-size: 8px; color: grey;text-align: right;">Data source: <a href="https://code.earthengine.google.com/?accept_repo=users/JesseVJohnson/pullERA5">ERA5 Climate Reanalysis data from Google Earth Engine</a>.  </p>
 </body>
 </html>
